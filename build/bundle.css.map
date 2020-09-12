@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "App.svelte"
+  ],
+  "sourcesContent": [
+    "<center>\n <div style=\"margin-top: {margin_top}\">\n  <h1>{angka}</h1>\n </div>\n <div class=\"full\" on:click={tambah}></div>\n</center>\n<button on:click={reset} class=\"reset btn btn-danger btn-sm\">Reset</button>\n\n<script>\n import {onMount} from \"svelte\"\n let angka = 0\n let margin_top = `${window.innerHeight / 2 - 40}px`\n onMount(() => {\n  if (localStorage.tasbih){\n   angka = localStorage.tasbih\n  }\n })\n const tambah = () => {\n  angka++\n  localStorage.setItem(\"tasbih\", angka)\n }\n const reset = () => {\n  const tanya = confirm(\"Reset?\")\n  if (tanya){\n  \tangka = 0\n  \tlocalStorage.setItem(\"tasbih\", angka)\n  }\n }\n</script>\n\n<style>\n .full {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n }\n .reset {\n  position: absolute;\n  top: 10px;\n  left: 10px;\n }\n</style>\n"
+  ],
+  "names": [],
+  "mappings": "AA+BC,KAAK,eAAC,CAAC,AACN,QAAQ,CAAE,KAAK,CACf,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,IAAI,CACZ,GAAG,CAAE,CAAC,CACN,IAAI,CAAE,CAAC,AACR,CAAC,AACD,MAAM,eAAC,CAAC,AACP,QAAQ,CAAE,QAAQ,CAClB,GAAG,CAAE,IAAI,CACT,IAAI,CAAE,IAAI,AACX,CAAC"
+}
